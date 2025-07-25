@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookNest – Online Library Shelf</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar" aria-label="Book categories">
+      <header>
+        <h1>BookNest</h1>
+      </header>
+      <ul class="categories">
+        <li><a href="#fiction">Fiction</a></li>
+        <li><a href="#nonfiction">Non-Fiction</a></li>
+        <li><a href="#selfhelp">Self-Help</a></li>
+        <li><a href="#tech">Tech</a></li>
+        <li><a href="#history">History</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section class="hero" aria-label="Welcome banner">
+        <h2>Welcome to BookNest!</h2>
+        <p>Currently Reading:</p>
+        <ul class="current-reads">
+          <li>
+            <img src="cover-placeholder.png" alt="Book cover for 'Atomic Habits'" class="cover-thumb">
+            <span>Atomic Habits</span> by James Clear
+          </li>
+          <li>
+            <img src="cover-placeholder.png" alt="Book cover for 'Dune'" class="cover-thumb">
+            <span>Dune</span> by Frank Herbert
+          </li>
+        </ul>
+      </section>
+      <section class="books-grid" aria-label="Bookshelf">
+        <h3>Bookshelf</h3>
+        <div class="grid">
+          <article class="book-card" tabindex="0">
+            <div class="cover-frame">
+              <img src="cover-placeholder.png" alt="Book cover for 'The Pragmatic Programmer'">
+            </div>
+            <div class="book-info">
+              <h4>The Pragmatic Programmer</h4>
+              <p class="author">Andrew Hunt, David Thomas</p>
+              <div class="stars" aria-label="4 out of 5 stars">
+                <span class="star full"></span>
+                <span class="star full"></span>
+                <span class="star full"></span>
+                <span class="star full"></span>
+                <span class="star"></span>
+              </div>
+              <span class="genre">Tech</span>
+            </div>
+            <div class="popup">Excellent for software engineers!</div>
+          </article>
+          <article class="book-card" tabindex="0">
+            <div class="cover-frame">
+              <img src="cover-placeholder.png" alt="Book cover for 'Sapiens'">
+            </div>
+            <div class="book-info">
+              <h4>Sapiens</h4>
+              <p class="author">Yuval Noah Harari</p>
+              <div class="stars" aria-label="5 out of 5 stars">
+                <span class="star full"></span>
+                <span class="star full"></span>
+                <span class="star full"></span>
+                <span class="star full"></span>
+                <span class="star full"></span>
+              </div>
+              <span class="genre">History</span>
+            </div>
+            <div class="popup">A sweeping history of humankind.</div>
+          </article>
+          <!-- Add more book cards as needed -->
+        </div>
+      </section>
+      <section class="recommended" aria-label="Recommended Reads">
+        <h3>Recommended Reads</h3>
+        <div class="rec-list">
+          <article class="rec-card">
+            <div class="cover-frame small">
+              <img src="cover-placeholder.png" alt="Book cover for 'Deep Work'">
+            </div>
+            <div class="rec-info">
+              <span>Deep Work</span>
+              <span class="genre">Self-Help</span>
+            </div>
+          </article>
+          <article class="rec-card">
+            <div class="cover-frame small">
+              <img src="cover-placeholder.png" alt="Book cover for 'Clean Code'">
+            </div>
+            <div class="rec-info">
+              <span>Clean Code</span>
+              <span class="genre">Tech</span>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
