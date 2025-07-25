@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a id="top"></a>
   <div class="container">
     <nav class="sidebar" aria-label="Book categories">
       <header>
@@ -21,23 +22,48 @@
       </ul>
     </nav>
     <main>
+      <div class="top-bar">
+        <form class="search-form" autocomplete="off" onsubmit="return false;">
+          <input type="text" id="searchInput" placeholder="Search books..." aria-label="Search books">
+        </form>
+        <label class="dark-toggle" aria-label="Toggle dark mode">
+          <input type="checkbox" id="darkModeToggle">
+          <span>🌙</span>
+        </label>
+      </div>
       <section class="hero" aria-label="Welcome banner">
-        <h2>Welcome to BookNest!</h2>
-        <p>Currently Reading:</p>
-        <ul class="current-reads">
-          <li>
-            <img src="cover-placeholder.png" alt="Book cover for 'Atomic Habits'" class="cover-thumb">
-            <span>Atomic Habits</span> by James Clear
-          </li>
-          <li>
-            <img src="cover-placeholder.png" alt="Book cover for 'Dune'" class="cover-thumb">
-            <span>Dune</span> by Frank Herbert
-          </li>
-        </ul>
+        <div class="hero-header">
+          <img src="https://ui-avatars.com/api/?name=Reader&background=8d6748&color=fff&rounded=true&size=64" alt="User avatar" class="user-avatar">
+          <div>
+            <h2>Welcome back, <span class="username">Reader</span>!</h2>
+            <p class="greeting">Ready to continue your reading journey?</p>
+          </div>
+        </div>
+        <div class="reading-progress">
+          <span class="progress-label">Reading Streak</span>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: 70%"></div>
+          </div>
+          <span class="progress-value">7 days</span>
+        </div>
+        <blockquote class="quote">“A room without books is like a body without a soul.”<br><span>– Cicero</span></blockquote>
+        <div class="current-reads-wrap">
+          <p>Currently Reading:</p>
+          <ul class="current-reads">
+            <li>
+              <img src="cover-placeholder.png" alt="Book cover for 'Atomic Habits'" class="cover-thumb">
+              <span>Atomic Habits</span> by James Clear
+            </li>
+            <li>
+              <img src="cover-placeholder.png" alt="Book cover for 'Dune'" class="cover-thumb">
+              <span>Dune</span> by Frank Herbert
+            </li>
+          </ul>
+        </div>
       </section>
       <section class="books-grid" aria-label="Bookshelf">
         <h3>Bookshelf</h3>
-        <div class="grid">
+        <div class="grid" id="booksGrid">
           <article class="book-card" tabindex="0">
             <div class="cover-frame">
               <img src="cover-placeholder.png" alt="Book cover for 'The Pragmatic Programmer'">
@@ -74,6 +100,14 @@
             </div>
             <div class="popup">A sweeping history of humankind.</div>
           </article>
+          <article class="book-card add-card" tabindex="0" aria-label="Add new book">
+            <div class="cover-frame">
+              <span class="plus-sign">+</span>
+            </div>
+            <div class="book-info">
+              <h4>Add New Book</h4>
+            </div>
+          </article>
           <!-- Add more book cards as needed -->
         </div>
       </section>
@@ -101,6 +135,27 @@
         </div>
       </section>
     </main>
+    <a href="#top" class="back-to-top" aria-label="Back to top">↑</a>
   </div>
+  <script>
+    // Simple search filter (client-side, no JS for actual hiding, just placeholder for now)
+    document.getElementById('searchInput').addEventListener('input', function(e) {
+      var filter = e.target.value.toLowerCase();
+      var cards = document.querySelectorAll('.book-card');
+      cards.forEach(function(card) {
+        var title = card.querySelector('h4')?.textContent.toLowerCase() || '';
+        var author = card.querySelector('.author')?.textContent.toLowerCase() || '';
+        if (title.includes(filter) || author.includes(filter) || card.classList.contains('add-card')) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+    // Dark mode toggle
+    document.getElementById('darkModeToggle').addEventListener('change', function(e) {
+      document.body.classList.toggle('dark', e.target.checked);
+    });
+  </script>
 </body>
 </html>
